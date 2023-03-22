@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="My website template." />
+    <meta
+      name="description"
+      content="Calculating the area of a triangle with javascript."
+    />
     <meta name="keywords" content="mths, ics2o" />
     <meta name="author" content="Ryan Duffett" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,50 +18,82 @@
       rel="stylesheet"
       href="https://code.getmdl.io/1.3.0/material.yellow-amber.min.css"
     />
-    <link rel="apple-touch-icon" sizes="180x180" href="Tim-apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Tim-apple-touch-icon.png"
+    />
     <link rel="icon" type="image/png" sizes="32x32" href="Tim-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="Tim-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <title>-TEMPLATE-</title>
+    <title>Triangle Area Calculator</title>
   </head>
   <body>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="./js/script.js"></script>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">-Website Template-</span>
+          <span class="mdl-layout-title">Area of a Triangle Calculator</span>
         </div>
       </header>
       <main class="mdl-layout__content">
-        <img src="TimIMG.JPG" alt="style.css" />
-        <div class="page-content">Calculate square root..</div>
-        <!-- Simple Textfield for integers-->
+        <table>
+          <tr>
+            <th>
+              <img src="triangle.png" alt="style" />
+            </th>
+            <th>
+              <h2>Area Formula</h2>
+              <h3>A = B x H/2</h3>
+            </th>
+          </tr>
+        </table>
+        <!-- Simple Textfield -->
         <form action="#">
+          <p>Base</p>
           <div class="mdl-textfield mdl-js-textfield">
-            <!-- input pattern attribute -->
             <input
               class="mdl-textfield__input"
               type="text"
-              pattern="[0-9]*"
-              id="demo-input"
+              pattern="-?[0-9]*(\.[0-9]+)?"
+              id="base-of-triangle"
             />
-            <!-- mdl-textfield__label -->
-            <label class="mdl-textfield__label" for="demo-input"
-              >Enter a number</label
+            <label class="mdl-textfield__label" for="base-of-triangle"
+              >base ...</label
             >
-            <!-- class "mdl-textfield__error" -->
-            <span class="mdl-textfield__error">Input is not a number</span>
+            <span class="mdl-textfield__error">Input is not a number!</span>
           </div>
         </form>
+        <!-- Numeric Textfield -->
+        <form action="#">
+          <p>Height</p>
+          <div class="mdl-textfield mdl-js-textfield">
+            <input
+              class="mdl-textfield__input"
+              type="text"
+              pattern="-?[0-9]*(\.[0-9]+)?"
+              id="height-of-triangle"
+            />
+            <label class="mdl-textfield__label" for="height-of-triangle"
+              >height ...</label
+            >
+            <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
+        </form>
+        <br />
         <!-- Raised button with ripple -->
         <button
           class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          onclick="buttonClicked()"
+          onclick="calculate()"
         >
-          Click me!
+          Calculate
         </button>
-        <div class="page-content" id="button-answer">Button answer..</div>
+        <br />
+        <div id="answers">
+          <div id="area"></div>
+          <div id="perimeter"></div>
+        </div>
       </main>
     </div>
   </body>
